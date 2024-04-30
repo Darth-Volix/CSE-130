@@ -35,12 +35,16 @@ def create_lists():
     Returns:
         tuple: A tuple containing two lists: usernames and passwords.
     '''
+
+    # Open the JSON file for reading.
     with open('Lab02.json', 'r') as json_file:
         data = json.load(json_file)
 
+        # Extract usernames and passwords from the data.
         usernames = data['username']
         passwords = data['password']
 
+    # Return the completed lists.
     return usernames, passwords
 
 def get_user_input():
@@ -50,9 +54,14 @@ def get_user_input():
     Returns:
         tuple: A tuple containing the provided username and password as strings.
     '''
+
+    # Prompt the user for their username.
     provided_username = input('Username: ')
+
+    # Prompt the user for their password.
     provided_password = input('Password: ')
 
+    # Return a tuple containing the provided username and password.
     return provided_username, provided_password
 
 def check_credentials(usernames, passwords, provided_username, provided_password):
@@ -68,10 +77,16 @@ def check_credentials(usernames, passwords, provided_username, provided_password
     Returns:
         None: Prints authentication status.
     '''
+
+    # Check if the provided username exists in the list of valid usernames.
     if provided_username in usernames:
         for i in range(len(usernames)):
+
+            # Find the index of the provided username.
             if provided_username == usernames[i]:
                 index = i
+
+                # Compare the provided password with the stored password at the same index.
                 if provided_password == passwords[index]:
                     print('You are authenticated!')
                 else:
@@ -83,10 +98,16 @@ def main():
     '''
     Entry point of the program.
     '''
+
+    # Read usernames and passwords from a JSON file.
     usernames, passwords = create_lists()
+
+    # Prompt the user for their username and password.
     provided_username, provided_password = get_user_input()
+
+    # Check if the provided credentials match the stored credentials.
     check_credentials(usernames, passwords, provided_username, provided_password)
 
-
+# Call the main function to start program.
 if __name__ == "__main__":
     main()            
