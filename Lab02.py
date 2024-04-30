@@ -50,8 +50,8 @@ def get_user_input():
     Returns:
         tuple: A tuple containing the provided username and password as strings.
     '''
-    provided_username = input('Please enter your username: ')
-    provided_password = input('Please enter your password: ')
+    provided_username = input('Username: ')
+    provided_password = input('Password: ')
 
     return provided_username, provided_password
 
@@ -86,6 +86,7 @@ def main():
     usernames, passwords = create_lists()
     provided_username, provided_password = get_user_input()
     check_credentials(usernames, passwords, provided_username, provided_password)
+
 
 if __name__ == "__main__":
     main()            
