@@ -83,7 +83,7 @@ def main():
             prompt_cash = int(input("How much cash do you have to spend?: "))
             if prompt_cash < total_cost:
 
-                # Out: No Funds
+                # Out: Cash
                 print("You do not have sufficient funds to purchase a hotel at this time.")
                 return
             
