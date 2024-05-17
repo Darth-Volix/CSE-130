@@ -1,3 +1,22 @@
+# 1. Name:
+#      Nicholas Wilkins
+# 2. Assignment Name:
+#      Lab 04: Monopoly
+# 3. Assignment Description:
+#      This program determines if a player can purchase and place a hotel on Pennsylvania 
+#      Avenue based on the user's answers to various prompts.
+# 4. What was the hardest part? Be as specific as possible.
+#      The hardest part was figuring out how to structure the code and the flowchart. I 
+#      struggled with making the code as efficient as possible with the least amount of
+#      propmts required to get to an answer based on each test case. This involved a lot
+#      code refactoring as I went due to discovering ways I could be more efficient than 
+#      my original flowchart. The end result is a program that is a mix of my flowchart 
+#      and the example flowchart that was provided at the end of last week. I also had to 
+#      make sure that the code was easy to read and understand.
+# 5. How long did it take for you to complete the assignment?
+#      Writing the code and recording the video took about 3.5 hours. Combined with the
+#      time spent on the flowchart last week, the whole thing was over 10 hours. 
+
 def check_hotel_swap(houses_pa, houses_nc, houses_pc):
     '''
     This function checks if there is already a hotel on Pennsylvania Avenue
