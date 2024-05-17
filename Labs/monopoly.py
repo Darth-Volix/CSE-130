@@ -12,7 +12,7 @@ def check_hotel_swap(houses_pa, houses_nc, houses_pc):
         bool: True if swapping is possible, False otherwise.
     '''
     if houses_pa == 5:
-        print("You already have a hotel on Pennsylvania Avenue.")
+        print("You cannot purchase a hotel if the property already has one.")
     elif houses_pc == 5 and houses_nc >= 4 and houses_pa == 4:
         print("Swap Pacific's hotel with Pennsylvania's 4 houses.")
     elif houses_pc >= 4 and houses_nc == 5 and houses_pa == 4:
