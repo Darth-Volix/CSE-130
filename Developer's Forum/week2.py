@@ -1,36 +1,34 @@
-triple_quote = """
-My name
-is Nick,
-How are
-you?
-"""
 
-single_letter = triple_quote[4]
-sub_string = triple_quote[2:7]
+def days_in_month(month, year):
+    days_per_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    if month == 2 and is_leap_year(year):
+        return 29
+    return days_per_month[month]
 
-print(f"Single Letter: {single_letter}")
-print(f"Sub String: {sub_string}")
+def days_between_dates(start_date, end_date):
+    start_day, start_month, start_year = start_date
+    end_day, end_month, end_year = end_date
+    days = 0
 
-string_list = triple_quote.split()
-print(f"String List: {string_list}")
-
-
-
-
-
-
-
-# Create a dictionary mapping Greek letters to their names
-greek_letters = {
-    'α': 'Alpha',
-    'β': 'Beta',
-    'γ': 'Gamma',
-    'δ': 'Delta'
-}
-
-# Display the name for β
-print(f"The name for β is: {greek_letters['β']}")
-
-# Display all key/value pairs in the dictionary
-for letter, name in greek_letters.items():
-    print(f"{letter}: {name}")
+    if start_year == end_year and start_month == end_month:
+        days = end_day - start_day
+        return days
+    elif start_year == end_year:
+        days += days_in_month(start_month, start_year) - start_day
+        for month in range(start_month + 1, end_month):
+            days += days_in_month(month, start_year)
+        days += end_day
+        return days
+    else:
+        days += days_in_month(start_month, start_year) - start_day
+        for month in range(start_month + 1, 13):
+            days += days_in_month(month, start_year)
+        for year in range(start_year + 1, end_year):
+            if
+            days += 366 if is_leap_year(year) else 365
+            else
+            days += days_in_month(month, start_year)
+        for month in range(1, end_month):
+            days += days_in_month(month, end_year)
+        days += end_day
+        return days
