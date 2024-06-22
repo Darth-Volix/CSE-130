@@ -24,10 +24,7 @@ def days_between_dates(start_date, end_date):
         for month in range(start_month + 1, 13):
             days += days_in_month(month, start_year)
         for year in range(start_year + 1, end_year):
-            if
             days += 366 if is_leap_year(year) else 365
-            else
-            days += days_in_month(month, start_year)
         for month in range(1, end_month):
             days += days_in_month(month, end_year)
         days += end_day
