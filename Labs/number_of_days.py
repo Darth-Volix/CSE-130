@@ -1,3 +1,14 @@
+# 1. Name:
+#      Nicholas Wilkins
+# 2. Assignment Name:
+#      Lab 10: Number of Days
+# 3. Assignment Description:
+#      This program calculates the number of days between two dates.
+# 4. What was the hardest part? Be as specific as possible.
+#      -a paragraph or two about how the assignment went for you-
+# 5. How long did it take for you to complete the assignment?
+#      -total time in hours including reading the assignment and submitting the program-
+
 def is_leap_year(year):
     '''
     This function takes a year as input and returns True if the year is a leap year 
