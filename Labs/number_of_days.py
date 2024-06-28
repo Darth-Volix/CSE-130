@@ -5,9 +5,15 @@
 # 3. Assignment Description:
 #      This program calculates the number of days between two dates.
 # 4. What was the hardest part? Be as specific as possible.
-#      -a paragraph or two about how the assignment went for you-
+#      The hardest part of this assignment was making sure that I had assert statements
+#      for all possible cases. I had to make sure that the start and end dates were valid,
+#      that the start date was not equal to the end date, and that the start date was less
+#      than the end date. I also had to make sure that the start date was less than or equal
+#      to the end date if they were in the same month. Troubleshooting those assert statements
+#      to make sure they were consistent with the logic of the program was the next hardest part.
 # 5. How long did it take for you to complete the assignment?
-#      -total time in hours including reading the assignment and submitting the program-
+#      This assignment took me about 2 hours to complete. 1.5 hours to write the code and 30 minutes
+#      to film the video and submit it.
 
 def is_leap_year(year):
     '''
