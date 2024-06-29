@@ -12,7 +12,7 @@
 #      to the end date if they were in the same month. Troubleshooting those assert statements
 #      to make sure they were consistent with the logic of the program was the next hardest part.
 # 5. How long did it take for you to complete the assignment?
-#      This assignment took me about 2 hours to complete. 1.5 hours to write the code and 30 minutes
+#      This assignment took me about 3 hours to complete. 2.5 hours to write the code and 30 minutes
 #      to film the video and submit it.
 
 def is_leap_year(year):
