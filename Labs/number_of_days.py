@@ -149,6 +149,7 @@ def get_valid_date(prompt):
             
             day = int(input(f"{prompt} Day: "))
             assert isinstance(day, int), "Day must be an integer"
+            assert 1 <= day <= 31, "Day must be between 1 and 31"
             assert 1 <= day <= days_in_month(month, year), "Invalid day for the given month and year"
             
             return (day, month, year)
