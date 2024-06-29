@@ -159,6 +159,7 @@ def get_valid_date(prompt):
 def main():
     while True:
         try:
+            print("")
             start_date = get_valid_date("Start")
             end_date = get_valid_date("End")
             days = days_between_dates(start_date, end_date)
@@ -167,7 +168,7 @@ def main():
             break
 
         except (ValueError, AssertionError) as e:
-            print(f"\nIvalid Input: {e}. Please try again.\n")
+            print(f"\nIvalid Input: {e}. Please try again.")
 
 if __name__ == "__main__":
     main()
