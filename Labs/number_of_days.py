@@ -26,10 +26,11 @@ def is_leap_year(year):
     Returns:
         bool: True if the year is a leap year, False otherwise.
     '''
-    assert isinstance(year, int), "Year must be an integer"
-    assert year >= 0, "Year must be non-negative"
-
-    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    if year % 4 != 0:
+        return False
+    elif year % 100 != 0:
+        return True
+    elif year % 400 == 0:
         return True
     else:
         return False
@@ -46,11 +47,6 @@ def days_in_month(month, year):
     Returns:
         int: The number of days in the month.
     '''
-    assert isinstance(month, int), "Month must be an integer"
-    assert 1 <= month <= 12, "Month must be between 1 and 12"
-    assert isinstance(year, int), "Year must be an integer"
-    assert year >= 0, "Year must be non-negative"
-
     days_per_month = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     if month == 2 and is_leap_year(year):
@@ -69,28 +65,18 @@ def days_between_dates(start_date, end_date):
     Returns:
         int: The number of days between the two dates.
     '''
-    assert isinstance(start_date, tuple) and len(start_date) == 3, "Start date must be a tuple with three elements (day, month, year)"
-    assert isinstance(end_date, tuple) and len(end_date) == 3, "End date must be a tuple with three elements (day, month, year)"
-
     # Break down the start and end dates into day, month, and year.
     start_day, start_month, start_year = start_date
     end_day, end_month, end_year = end_date
 
-    assert isinstance(start_day, int) and 1 <= start_day <= days_in_month(start_month, start_year), "Invalid start day"
-    assert isinstance(start_month, int) and 1 <= start_month <= 12, "Invalid start month"
-    assert isinstance(start_year, int) and start_year >= 0, "Invalid start year"
-
-    assert isinstance(end_day, int) and 1 <= end_day <= days_in_month(end_month, end_year), "Invalid end day"
-    assert isinstance(end_month, int) and 1 <= end_month <= 12,  "Invalid end month"
-    assert isinstance(end_year, int) and end_year >= 0 and start_year <= end_year, "Invalid end year"
-
+    assert start_year <= end_year, "End year must be greater than or equal to start year"
     assert start_date != end_date, "Start and end dates cannot be the same"
 
     if start_year == end_year:
-        assert start_month <= end_month, "Start month must be less than or equal to end month"
+        assert start_month <= end_month, "End month must be greater than or equal to start month"
         
         if start_month == end_month:
-            assert start_day < end_day, "Start day must be less than end day"
+            assert start_day < end_day, "End day must be greater than start day"
     
     days = 0
 
@@ -141,25 +127,47 @@ def days_between_dates(start_date, end_date):
 
         return days
     
+def get_valid_date(prompt):
+    '''
+    This function prompts the user to enter a valid date and returns it as a tuple.
+
+    Parameters:
+        prompt (str): The prompt message to display to the user.
+
+    Returns:
+        tuple: The valid date entered by the user in the format (day, month, year).
+    '''
+    while True:
+        try:
+            year = int(input(f"{prompt} Year: "))
+            assert isinstance(year, int), "Year must be an integer"
+            assert year >= 1753, "Year must be 1753 or later"
+            
+            month = int(input(f"{prompt} Month: "))
+            assert isinstance(month, int), "Month must be an integer"
+            assert 1 <= month <= 12, "Month must be between 1 and 12"
+            
+            day = int(input(f"{prompt} Day: "))
+            assert isinstance(day, int), "Day must be an integer"
+            assert 1 <= day <= days_in_month(month, year), "Invalid day for the given month and year"
+            
+            return (day, month, year)
+        
+        except (ValueError, AssertionError) as e:
+            print(f"\nInvalid input: {e}. Please try again.\n")
+
 def main():
+    while True:
+        try:
+            start_date = get_valid_date("Start")
+            end_date = get_valid_date("End")
+            days = days_between_dates(start_date, end_date)
 
-    # Get the start and end dates from the user.
-    start_year = int(input("Start Year: "))
-    start_month = int(input("Start Month: "))
-    start_day = int(input("Start Day: "))
-    end_year = int(input("End Year: "))
-    end_month = int(input("End Month: "))
-    end_day = int(input("End Day: "))
+            print(f"\nThere are {days} days between the two dates.")
+            break
 
-    # Format the dates for use in functions.
-    start_date = (start_day, start_month, start_year)
-    end_date = (end_day, end_month, end_year)
-
-    # Calculate the number of days between the two dates.
-    days = days_between_dates(start_date, end_date)
-
-    # Display the result.
-    print(f"\nThere are {days} days between the two dates.")
+        except (ValueError, AssertionError) as e:
+            print(f"\nIvalid Input: {e}. Please try again.\n")
 
 if __name__ == "__main__":
     main()
