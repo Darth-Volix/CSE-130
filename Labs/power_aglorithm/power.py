@@ -1,3 +1,18 @@
+# 1. Name:
+#      Nicholas Wilkins
+# 2. Assignment Name:
+#      Lab 13: Power
+# 3. Assignment Description:
+#      This program reads an array from a JSON file and finds the highest average of all subarrays of a given length.
+# 4. What was the hardest part? Be as specific as possible.
+#      The hardest part was ensuring that the program could handle all possible exceptions that could occur when   
+#      reading the JSON file and finding the highest average of a subarray. I still find it hard to think about all
+#      the possible exceptions that could occur and how to handle them. Making sure the program did all of that and
+#      still was readable and understandable was difficult. I am a bit of a perfectionist and I want to make sure that
+#      my code is as clean and efficient as possible. Comments are quickly becoming my best friend. 
+# 5. How long did it take for you to complete the assignment?
+#      It took me about 2 hours to complete this assignment.
+
 import json
 
 def json_reader(file_name):
